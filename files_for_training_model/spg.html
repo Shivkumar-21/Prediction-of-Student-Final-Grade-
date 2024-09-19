@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Performance Report</title>
+  <style>
+    body {
+      background: url('istockphoto-1210928117-1024x1024.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .login {
+      background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+    }
+    h1, h2, h3 {
+      color: Violet;
+      margin: 0;
+    }
+    .form-group {
+      margin: 15px 0;
+    }
+    input[type="text"] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      background-color: Violet;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkviolet;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="login">
+      <h1>Student Performance Prediction</h1>
+      <h2>Capstone Project 1</h2>
+      <h3>Student Performance by Shiv</h3>
+
+      <form action="{{ url_for('predict') }}" method="post">
+        <div class="form-group">
+          <input type="text" name="StudyHours" placeholder="Study Hours" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="AttendanceRate" placeholder="Attendance Rate" required>
+        </div>
+        <button type="submit">Predict Student Final Grade</button>
+      </form>
+
+      <br>
+      <h4>{{ prediction_text }}</h4>
+    </div>
+  </div>
+</body>
+</html>
